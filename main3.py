@@ -4,8 +4,21 @@ from transformers import DistilBertTokenizer
 from transformers import DistilBertForSequenceClassification
 
 # Load the pre-trained model and tokenizer
-model = DistilBertForSequenceClassification.from_pretrained('https://github.com/snvice/TUDA/tree/main/distilbert')
-tokenizer = DistilBertTokenizer.from_pretrained('https://github.com/snvice/TUDA/tree/main/tokenizer')
+# model = DistilBertForSequenceClassification.from_pretrained('https://github.com/snvice/TUDA/tree/main/distilbert')
+# tokenizer = DistilBertTokenizer.from_pretrained('https://github.com/snvice/TUDA/tree/main/tokenizer')
+
+
+model = DistilBertForSequenceClassification.from_pretrained(
+    'https://github.com/snvice/TUDA/tree/main/distilbert',
+    use_auth_token=True
+)
+tokenizer = DistilBertTokenizer.from_pretrained(
+    'https://github.com/snvice/TUDA/tree/main/tokenizer',
+    use_auth_token=True
+)
+
+
+
 
 # Define the label encoder
 label_encoder = {'Depression': 0, 'Suicide': 1, 'Drugs': 2, 'Alcohol': 3}
